@@ -1,0 +1,55 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3307/task_management?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Ho_Chi_Minh&characterEncoding=utf8&useUnicode=true
+    username: book
+    password: Book@123456
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: trungdev234@gmail.com
+    password: "ehfd fjkm jbom aktq"  # nên dùng App Password của Gmail
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    default-encoding: UTF-8
+
+  jackson:
+    time-zone: Asia/Ho_Chi_Minh
+
+app:
+  jwt:
+    issuer: stadium-booking
+    secret: "Zk7nQm9vR2pX6aH1tL8cY4uE0sW3dB5fJ9kP2rT7yN1xV6gH8mC0qL4uS5iA3eD"
+    access-minutes: 15
+
+  bootstrap:
+    admin:
+      email: "admin@gmail.com"
+      password: "Admin@123456"   # nên >= 8 ký tự cho đúng validate
+      full-name: "System Admin"
+
+  refresh:
+    days: 14
+    cookie-name: "refresh_token"
+    cookie-path: "/auth"
+    secure: false
+    same-site: "Lax"
+
+  otp:
+    minutes: 10         # OTP hết hạn
+    resend-seconds: 30  # chống spam resend
